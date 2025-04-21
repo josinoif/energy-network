@@ -1,50 +1,90 @@
 # Energy Network
 
-Este projeto é uma aplicação para gerenciar redes de energia, composta por um backend em Java com Spring Boot, um frontend em Vue.js e um banco de dados gerenciado via Docker.
+- **Descrição do Projeto**:
+    - Aplicação para gerenciar redes de energia.
+    - Tecnologias utilizadas:
+        - Backend: Java com Spring Boot.
+        - Frontend: Vue.js.
+        - Banco de dados gerenciado via Docker.
 
-## Instruções para iniciar o projeto
+## Instruções para Iniciar o Projeto
 
-### 1. Iniciar o banco de dados
-O banco de dados está localizado na pasta `infra` e é gerenciado via Docker.
+- **Banco de Dados**:
+    - Localização: Pasta `infra`.
+    - Gerenciamento: Docker.
+    - Passos:
+        1. Navegar até a pasta `infra`:
+             ```bash
+             cd infra
+             ```
+        2. Iniciar o container:
+             ```bash
+             docker-compose up -d
+             ```
 
-1. Navegue até a pasta `infra`:
-    ```bash
-    cd infra
-    ```
-2. Inicie o container do banco de dados:
-    ```bash
-    docker-compose up -d
-    ```
+- **Backend**:
+    - Tecnologia: Java com Spring Boot.
+    - Passos:
+        1. Navegar até a pasta do backend:
+             ```bash
+             cd backend
+             ```
+        2. Compilar e iniciar o servidor:
+             ```bash
+             ./mvnw spring-boot:run
+             ```
 
-### 2. Iniciar o backend
-O backend é desenvolvido em Java com Spring Boot.
+- **Frontend**:
+    - Tecnologia: Vue.js.
+    - Passos:
+        1. Navegar até a pasta do frontend:
+             ```bash
+             cd frontend
+             ```
+        2. Instalar dependências:
+             ```bash
+             npm install
+             ```
+        3. Iniciar o servidor de desenvolvimento:
+             ```bash
+             npm run dev
+             ```
 
-1. Navegue até a pasta do backend:
-    ```bash
-    cd backend
-    ```
-2. Compile e inicie o servidor:
-    ```bash
-    ./mvnw spring-boot:run
-    ```
+- **Acessar a Aplicação**:
+    - Frontend: `http://localhost:5174/`
+    - Backend: `http://localhost:8080`
+    - Documentação da API: `http://localhost:8080/swagger-ui/index.html`
 
-### 3. Iniciar o frontend
-O frontend é desenvolvido em Vue.js.
+## Funcionalidades Implementadas
 
-1. Navegue até a pasta do frontend:
-    ```bash
-    cd frontend
-    ```
-2. Instale as dependências:
-    ```bash
-    npm install
-    ```
-3. Inicie o servidor de desenvolvimento:
-    ```bash
-    npm run dev
-    ```
+- **Backend**:
+    - Gerenciamento de Subestações:
+        - Listar, criar, atualizar e excluir subestações.
+    - Gerenciamento de Redes MT:
+        - Listar, adicionar, atualizar e excluir redes de média tensão.
+    - Autenticação e Autorização:
+        - Login via JWT, validação de token e gerenciamento de usuários.
+    - Documentação da API:
+        - Swagger UI e especificação OpenAPI.
+    - Segurança:
+        - Spring Security com autenticação JWT e configuração de CORS.
+    - Integração com Banco de Dados:
+        - Persistência com JPA/Hibernate e migrações.
+    - Tratamento de Erros:
+        - Mensagens personalizadas e validação de dados.
+    - Testes Automatizados:
+        - Testes unitários e de integração.
 
-### 4. Acessar a aplicação
-- O frontend estará disponível em: `http://localhost:5174/`
-- O backend estará disponível em: `http://localhost:8080`
-- Certifique-se de que o banco de dados está em execução antes de iniciar o backend.
+- **Frontend**:
+    - Gerenciamento de Subestações:
+        - Listar, criar, editar e excluir subestações.
+    - Gerenciamento de Redes MT:
+        - Listar, adicionar, editar e excluir redes MT.
+    - Autenticação e Autorização:
+        - Login, validação de sessão e logout.
+    - Integração com Backend:
+        - Consumo de APIs, exibição de dados e mensagens de feedback.
+    - Interface do Usuário:
+        - Design responsivo, componentes Vue.js e navegação com Vue Router.
+    - Tratamento de Erros:
+        - Validação de formulários e exibição de mensagens claras.
