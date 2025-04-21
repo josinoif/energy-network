@@ -45,6 +45,6 @@ O frontend é desenvolvido em Vue.js.
     ```
 
 ### 4. Acessar a aplicação
-- O frontend estará disponível em: `http://localhost:8080`
-- O backend estará disponível em: `http://localhost:8081`
+- O frontend estará disponível em: `http://localhost:5174/`
+- O backend estará disponível em: `http://localhost:8080`
 - Certifique-se de que o banco de dados está em execução antes de iniciar o backend.
