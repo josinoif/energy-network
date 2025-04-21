@@ -4,6 +4,7 @@ package com.sinapsis.backend.application.service;
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -42,7 +43,7 @@ class SubestacaoServiceTest {
     void listarTodos_DeveRetornarListaDeSubestacaoResponse() {
         // Arrange
         Subestacao subestacao = new Subestacao();
-        SubestacaoResponse response = new SubestacaoResponse(1L, "SB1" ,"Subestação A", -23.5, -46.6);
+        SubestacaoResponse response = new SubestacaoResponse(1L, "SB1" ,"Subestação A", -23.5, -46.6, new ArrayList<>());
 
         when(subestacaoRepository.findAll()).thenReturn(List.of(subestacao));
         when(subestacaoMapper.toResponse(subestacao)).thenReturn(response);
@@ -62,7 +63,7 @@ class SubestacaoServiceTest {
         // Arrange
         Long id = 1L;
         Subestacao subestacao = new Subestacao();
-        SubestacaoResponse response = new SubestacaoResponse(1L, "SB1" ,"Subestação A", -23.5, -46.6);
+        SubestacaoResponse response = new SubestacaoResponse(1L, "SB1" ,"Subestação A", -23.5, -46.6, new ArrayList<>());
 
         when(subestacaoRepository.findById(id)).thenReturn(Optional.of(subestacao));
         when(subestacaoMapper.toResponse(subestacao)).thenReturn(response);
@@ -128,10 +129,10 @@ class SubestacaoServiceTest {
     @Test
     void criar_DeveRetornarSubestacaoResponse() {
         // Arrange
-        SubestacaoRequest request = new SubestacaoRequest("SB1" ,"Subestação A", -23.5, -46.6);
+        SubestacaoRequest request = new SubestacaoRequest("SB1" ,"Subestação A", -23.5, -46.6, new ArrayList<>());
         Subestacao subestacao = new Subestacao();
         Subestacao salva = new Subestacao();
-        SubestacaoResponse response = new SubestacaoResponse(1L, "SB1" ,"Subestação A", -23.5, -46.6);
+        SubestacaoResponse response = new SubestacaoResponse(1L, "SB1" ,"Subestação A", -23.5, -46.6, new ArrayList<>());
 
         when(subestacaoMapper.toEntity(request)).thenReturn(subestacao);
         when(subestacaoRepository.save(subestacao)).thenReturn(salva);
@@ -151,10 +152,13 @@ class SubestacaoServiceTest {
     void atualizar_DeveRetornarSubestacaoResponse_QuandoIdExiste() {
         // Arrange
         Long id = 1L;
-        SubestacaoRequest request = new SubestacaoRequest("SB1" ,"Subestação Atualizada", -23.5, -46.6);
+        SubestacaoRequest request = new SubestacaoRequest("SB1" ,"Subestação Atualizada", -23.5, -46.6, new ArrayList<>());
         Subestacao subestacao = new Subestacao();
         Subestacao atualizada = new Subestacao();
-        SubestacaoResponse response = new SubestacaoResponse(1L, "SB1" ,"Subestação Atualizada", -23.5, -46.6);
+        SubestacaoResponse response = new SubestacaoResponse(1L, "SB1" ,"Subestação Atualizada", -23.5, -46.6, new ArrayList<>());
+
+        when(subestacaoRepository.findById(id)).thenReturn(Optional.of(subestacao));
+        // when(subestacaoMapper.updateFromRequest(request, subestacao)).thenReturn(subestacao);
 
         when(subestacaoRepository.findById(id)).thenReturn(Optional.of(subestacao));
         when(subestacaoRepository.save(subestacao)).thenReturn(atualizada);
@@ -175,7 +179,7 @@ class SubestacaoServiceTest {
     void atualizar_DeveLancarEntityNotFoundException_QuandoIdNaoExiste() {
         // Arrange
         Long id = 1L;
-        SubestacaoRequest request = new SubestacaoRequest("SB1" ,"Subestação Atualizada", -23.5, -46.6);
+        SubestacaoRequest request = new SubestacaoRequest("SB1" ,"Subestação Atualizada", -23.5, -46.6, new ArrayList<>());
 
         when(subestacaoRepository.findById(id)).thenReturn(Optional.empty());
 

@@ -47,7 +47,7 @@ class RedeMTServiceTest {
     void criar_DeveRetornarRedeMTResponse_QuandoSubestacaoExiste() {
         // Arrange
         Long idSubestacao = 1L;
-        RedeMTRequest request = new RedeMTRequest("MT01", "Rede Teste", new BigDecimal("13.8"));
+        RedeMTRequest request = new RedeMTRequest(null, "MT01", "Rede Teste", new BigDecimal("13.8"));
         Subestacao subestacao = new Subestacao();
         RedeMT rede = new RedeMT();
         RedeMTResponse response = new RedeMTResponse(1L, "MT01", "Rede Teste", new BigDecimal("13.8"));
@@ -72,7 +72,7 @@ class RedeMTServiceTest {
     void criar_DeveLancarEntityNotFoundException_QuandoSubestacaoNaoExiste() {
         // Arrange
         Long idSubestacao = 1L;
-        RedeMTRequest request = new RedeMTRequest("MT01", "Rede Teste", new BigDecimal("13.8"));
+        RedeMTRequest request = new RedeMTRequest(null, "MT01", "Rede Teste", new BigDecimal("13.8"));
 
         when(subestacaoRepository.findById(idSubestacao)).thenReturn(Optional.empty());
 
@@ -190,7 +190,7 @@ class RedeMTServiceTest {
         // Arrange
         Long idSubestacao = 1L;
         Long idRede = 2L;
-        RedeMTRequest request = new RedeMTRequest("MT01", "Rede Atualizada", new BigDecimal("13.8"));
+        RedeMTRequest request = new RedeMTRequest(idRede, "MT01", "Rede Atualizada", new BigDecimal("13.8"));
         Subestacao subestacao = new Subestacao();
         RedeMT rede = new RedeMT();
         RedeMTResponse response = new RedeMTResponse(2L, "MT01", "Rede Atualizada", new BigDecimal("13.8"));
@@ -216,7 +216,7 @@ class RedeMTServiceTest {
         // Arrange
         Long idSubestacao = 1L;
         Long idRede = 2L;
-        RedeMTRequest request = new RedeMTRequest("MT01", "Rede Atualizada", new BigDecimal("13.8"));
+        RedeMTRequest request = new RedeMTRequest(idRede, "MT01", "Rede Atualizada", new BigDecimal("13.8"));
 
         when(subestacaoRepository.findById(idSubestacao)).thenReturn(Optional.empty());
 
@@ -235,7 +235,7 @@ class RedeMTServiceTest {
         // Arrange
         Long idSubestacao = 1L;
         Long idRede = 2L;
-        RedeMTRequest request = new RedeMTRequest("MT01", "Rede Atualizada", new BigDecimal("13.8"));
+        RedeMTRequest request = new RedeMTRequest(idRede, "MT01", "Rede Atualizada", new BigDecimal("13.8"));
 
         when(subestacaoRepository.findById(idSubestacao)).thenReturn(Optional.of(new Subestacao()));
         when(redeMTRepository.findByIdAndSubestacaoId(idRede, idSubestacao)).thenReturn(Optional.empty());

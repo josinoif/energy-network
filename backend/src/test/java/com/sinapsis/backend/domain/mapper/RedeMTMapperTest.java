@@ -24,7 +24,7 @@ class RedeMTMapperTest {
     @Test
     void toEntity_DeveRetornarRedeMT_QuandoDadosValidos() {
         // Arrange
-        RedeMTRequest request = new RedeMTRequest("MT01", "Rede Teste", new BigDecimal("13.8"));
+        RedeMTRequest request = new RedeMTRequest(null, "MT01", "Rede Teste", new BigDecimal("13.8"));
         Subestacao subestacao = Subestacao.builder()
             .id(1L)
             .nome("Subestação A")

@@ -1,7 +1,7 @@
 package com.sinapsis.backend.application.service;
 
-
 import static org.junit.jupiter.api.Assertions.*;
+import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.*;
 
 import java.util.Optional;
@@ -11,8 +11,10 @@ import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.crypto.password.PasswordEncoder;
 
 import com.sinapsis.backend.application.dto.AuthRequest;
 import com.sinapsis.backend.domain.entity.Usuario;
@@ -33,6 +35,9 @@ class AuthServiceTest {
     @InjectMocks
     private AuthService authService;
 
+    @Mock
+    private PasswordEncoder passwordEncoder;
+
     @BeforeEach
     void setUp() {
         MockitoAnnotations.openMocks(this);
@@ -48,8 +53,11 @@ class AuthServiceTest {
         var authRequest = new AuthRequest(username, password);
         var usuario = new Usuario();
         usuario.setUsername(username);
+        String encodedPassword = "encoded-testpassword";
+        usuario.setPassword(encodedPassword);
 
         when(usuarioRepository.findByUsername(username)).thenReturn(Optional.of(usuario));
+        when(passwordEncoder.matches(any(), any())).thenReturn(true); // Simula a codificação da senha
         when(jwtService.generateToken(usuario)).thenReturn(jwtToken);
 
         // Act
@@ -74,12 +82,10 @@ class AuthServiceTest {
 
         // Act & Assert
         var exception = assertThrows(
-            RuntimeException.class,
-            () -> authService.login(authRequest)
-        );
+                RuntimeException.class,
+                () -> authService.login(authRequest));
 
         assertEquals("No value present", exception.getMessage());
-        verify(authManager).authenticate(any(UsernamePasswordAuthenticationToken.class));
         verify(usuarioRepository).findByUsername(username);
         verify(jwtService, never()).generateToken(any());
     }
@@ -108,17 +114,16 @@ class AuthServiceTest {
         usuario.setPassword("correctpassword");
 
         when(usuarioRepository.findByUsername(username)).thenReturn(Optional.of(usuario));
-        doThrow(new RuntimeException("Bad credentials")).when(authManager).authenticate(any(UsernamePasswordAuthenticationToken.class));
+        doThrow(new RuntimeException("Bad credentials")).when(authManager)
+                .authenticate(any(UsernamePasswordAuthenticationToken.class));
 
-        authService.login(authRequest);
+        // authService.login(authRequest);
         // Act & Assert
-        // var exception = assertThrows(
-        //     RuntimeException.class,
-        //     () -> authService.login(authRequest)
-        // );
+        var exception = assertThrows(
+                RuntimeException.class,
+                () -> authService.login(authRequest));
 
-        // assertEquals("Bad credentials", exception.getMessage());
-        verify(authManager).authenticate(any(UsernamePasswordAuthenticationToken.class));
+        assertEquals("Invalid credentials", exception.getMessage());
         verify(usuarioRepository).findByUsername(username);
         verify(jwtService, never()).generateToken(any());
     }

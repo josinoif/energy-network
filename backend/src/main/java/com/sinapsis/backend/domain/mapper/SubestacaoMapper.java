@@ -15,6 +15,11 @@ public class SubestacaoMapper {
     @Autowired
     private RedeMTMapper redeMTMapper;
 
+    public void setRedeMTMapper(RedeMTMapper redeMTMapper) {
+        this.redeMTMapper = redeMTMapper;
+    }
+
+
     public SubestacaoResponse toResponse(Subestacao entity) {
         return new SubestacaoResponse(
             entity.getId(),

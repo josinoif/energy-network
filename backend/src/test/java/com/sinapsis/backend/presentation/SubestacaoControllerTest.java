@@ -6,6 +6,7 @@ import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.ArgumentMatchers.eq;
 import static org.mockito.Mockito.*;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -64,7 +65,7 @@ class SubestacaoControllerTest {
     @Test
     void listar_DeveRetornarListaDeSubestacoes() throws Exception {
         // Arrange
-        SubestacaoResponse response = new SubestacaoResponse(1L, "SUB01", "Subestação A", -23.5, -46.6);
+        SubestacaoResponse response = new SubestacaoResponse(1L, "SUB01", "Subestação A", -23.5, -46.6, new ArrayList<>());
         when(subestacaoService.listarTodos()).thenReturn(List.of(response));
 
         // Act & Assert
@@ -84,7 +85,7 @@ class SubestacaoControllerTest {
     @Test
     void buscarPorId_DeveRetornarSubestacao_QuandoIdValido() throws Exception {
         // Arrange
-        SubestacaoResponse response = new SubestacaoResponse(1L, "SUB01", "Subestação A", -23.5, -46.6);
+        SubestacaoResponse response = new SubestacaoResponse(1L, "SUB01", "Subestação A", -23.5, -46.6, new ArrayList<>());
         when(subestacaoService.buscarPorId(1L)).thenReturn(response);
 
         // Act & Assert
@@ -104,8 +105,8 @@ class SubestacaoControllerTest {
     @Test
     void criar_DeveRetornarSubestacaoCriada_QuandoRequestValido() throws Exception {
         // Arrange
-        SubestacaoRequest request = new SubestacaoRequest("SUB01", "Subestação A", -23.5, -46.6);
-        SubestacaoResponse response = new SubestacaoResponse(1L, "SUB01", "Subestação A", -23.5, -46.6);
+        SubestacaoRequest request = new SubestacaoRequest("SUB01", "Subestação A", -23.5, -46.6, new ArrayList<>());
+        SubestacaoResponse response = new SubestacaoResponse(1L, "SUB01", "Subestação A", -23.5, -46.6, new ArrayList<>());
 
         when(subestacaoService.criar(any(SubestacaoRequest.class))).thenReturn(response);
 
@@ -127,8 +128,8 @@ class SubestacaoControllerTest {
     @Test
     void atualizar_DeveRetornarSubestacaoAtualizada_QuandoRequestValido() throws Exception {
         // Arrange
-        SubestacaoRequest request = new SubestacaoRequest("SUB02", "Subestação B", -22.0, -45.0);
-        SubestacaoResponse response = new SubestacaoResponse(1L, "SUB02", "Subestação B", -22.0, -45.0);
+        SubestacaoRequest request = new SubestacaoRequest("SUB02", "Subestação B", -22.0, -45.0, new ArrayList<>());
+        SubestacaoResponse response = new SubestacaoResponse(1L, "SUB02", "Subestação B", -22.0, -45.0, new ArrayList<>());
 
         when(subestacaoService.atualizar(eq(1L), any(SubestacaoRequest.class))).thenReturn(response);
 

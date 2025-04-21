@@ -34,6 +34,11 @@ public class RedeMTMapper {
     }
 
     public Set<RedeMT> toEntitySet(List<RedeMTRequest> requests, Subestacao subestacao) {
+
+        if (requests == null || requests.isEmpty()) {
+            return Set.of();
+        }
+
         return requests.stream()
             .map(request -> toEntity(request, subestacao))
             .collect(Collectors.toSet());

@@ -68,11 +68,11 @@ class RedeMTControllerTest {
     void criar_DeveRetornarRedeMTCriada_QuandoRequestValido() throws Exception {
         // Arrange
         Long idSubestacao = 1L;
-        RedeMTRequest request = new RedeMTRequest("MT01", "Rede Teste", new BigDecimal("13.8"));
+        RedeMTRequest request = new RedeMTRequest(null, "MT01", "Rede Teste", new BigDecimal("13.8"));
         RedeMTResponse response = new RedeMTResponse(1L, "MT01", "Rede Teste", new BigDecimal("13.8"));
 
 
-        when(subestacaoService.buscarPorId(idSubestacao)).thenReturn(new SubestacaoResponse(idSubestacao, null, null, null, null));
+        when(subestacaoService.buscarPorId(idSubestacao)).thenReturn(new SubestacaoResponse(idSubestacao, null, null, null, null, null));
 
         when(redeMTService.criar(eq(idSubestacao), any(RedeMTRequest.class))).thenReturn(response);
 
@@ -117,7 +117,7 @@ class RedeMTControllerTest {
         // Arrange
         Long idSubestacao = 1L;
         Long idRede = 2L;
-        RedeMTRequest request = new RedeMTRequest("MT02", "Rede Atualizada", new BigDecimal("15.0"));
+        RedeMTRequest request = new RedeMTRequest(idRede,"MT02", "Rede Atualizada", new BigDecimal("15.0"));
         RedeMTResponse response = new RedeMTResponse(2L, "MT02", "Rede Atualizada", new BigDecimal("15.0"));
 
         when(redeMTService.atualizar(eq(idSubestacao), eq(idRede), any(RedeMTRequest.class))).thenReturn(response);
