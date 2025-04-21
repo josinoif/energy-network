@@ -41,7 +41,7 @@ O frontend é desenvolvido em Vue.js.
     ```
 3. Inicie o servidor de desenvolvimento:
     ```bash
-    npm run serve
+    npm run dev
     ```
 
 ### 4. Acessar a aplicação
