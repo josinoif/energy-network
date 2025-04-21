@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Sistema Teste Desenvolvedor Java</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body, html {
+      height: 100%;
+      margin: 0;
+    }
+
+    .bg-img {
+      background-image: url('https://images.unsplash.com/photo-1504384308090-c894fdcc538d'); /* Imagem ilustrativa */
+      background-size: cover;
+      background-position: center;
+      height: 100vh;
+      position: relative;
+    }
+
+    .header-title {
+      background-color: rgba(255, 255, 255, 0.8);
+      text-align: center;
+      padding: 10px;
+      font-size: 1.5rem;
+      font-weight: 500;
+    }
+
+    .login-box {
+      background-color: rgba(255, 255, 255, 0.9);
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.2);
+      position: absolute;
+      bottom: 30px;
+      right: 30px;
+      width: 250px;
+    }
+
+    label {
+      font-weight: 500;
+    }
+  </style>
+</head>
+<body>
+
+<div class="bg-img">
+  <div class="header-title">
+    Sistema Teste Desenvolvedor Java - Versão 1.5
+  </div>
+
+  <div class="login-box">
+    <form>
+      <div class="mb-3">
+        <label for="usuario" class="form-label">Usuário:</label>
+        <input type="text" class="form-control" id="usuario" placeholder="Digite seu usuário">
+      </div>
+      <div class="mb-3">
+        <label for="senha" class="form-label">Senha:</label>
+        <input type="password" class="form-control" id="senha" placeholder="Digite sua senha">
+      </div>
+      <button type="submit" class="btn btn-secondary w-100">entrar</button>
+    </form>
+  </div>
+</div>
+
+</body>
+</html>

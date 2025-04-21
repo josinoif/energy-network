@@ -1,0 +1,13 @@
+{
+    "graalvm.home": "/home/josinon/.sdkman/candidates/java/22.3.r17-grl",
+    "graalvm.installations": [
+        "/home/josinon/.sdkman/candidates/java/22.3.r17-grl"
+    ],
+    "netbeans.jdkhome": "/home/josinon/.sdkman/candidates/java/22.3.r17-grl",
+    "terminal.integrated.env.linux": {
+        "GRAALVM_HOME": "/home/josinon/.sdkman/candidates/java/22.3.r17-grl"
+    },
+    "java.compile.nullAnalysis.mode": "automatic",
+    "java.configuration.updateBuildConfiguration": "interactive",
+    "java.debug.settings.onBuildFailureProceed": true
+}

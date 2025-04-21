@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Inclusão de Subestação</title>
+
+  <!-- Bootstrap 5 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+  <style>
+    body {
+      padding: 40px;
+    }
+
+    .header {
+      background-color: #e9ecef;
+      padding: 15px;
+      text-align: center;
+      font-size: 1.5rem;
+      margin-bottom: 30px;
+      border-radius: 5px;
+    }
+
+    .form-section {
+      border: 1px solid #ced4da;
+      border-radius: 5px;
+      padding: 20px;
+      margin-bottom: 30px;
+    }
+
+    .form-section h6 {
+      font-weight: 600;
+      margin-bottom: 20px;
+    }
+
+    .table th, .table td {
+      vertical-align: middle;
+    }
+
+    .btn-acao {
+      width: 100px;
+    }
+
+    .btn-group-bottom {
+      display: flex;
+      justify-content: flex-end;
+      gap: 10px;
+    }
+
+    .breadcrumb-item + .breadcrumb-item::before {
+      content: ">";
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Título -->
+  <div class="header">
+    Sistema Teste Desenvolvedor Java - Versão 1.5
+  </div>
+
+  <!-- Breadcrumb -->
+  <nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a href="#">Home</a></li>
+      <li class="breadcrumb-item"><a href="#">Subestação</a></li>
+      <li class="breadcrumb-item active" aria-current="page">Inclusão</li>
+    </ol>
+  </nav>
+
+  <!-- Subestação -->
+  <div class="form-section">
+    <h6>Subestação</h6>
+    <div class="row mb-3">
+      <div class="col-md-2">
+        <label for="codigo" class="form-label">Código:</label>
+        <input type="text" class="form-control" id="codigo" value="ZFA" />
+      </div>
+      <div class="col-md-10">
+        <label for="nome" class="form-label">Nome:</label>
+        <input type="text" class="form-control" id="nome" value="Subestação C" />
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-6">
+        <label for="latitude" class="form-label">Latitude:</label>
+        <input type="text" class="form-control" id="latitude" value="-23.0917377538889" />
+      </div>
+      <div class="col-md-6">
+        <label for="longitude" class="form-label">Longitude:</label>
+        <input type="text" class="form-control" id="longitude" value="-48.9241677522699" />
+      </div>
+    </div>
+  </div>
+
+  <!-- Rede MT -->
+  <div class="form-section">
+    <h6>Rede MT</h6>
+    <div class="row mb-3">
+      <div class="col-md-2">
+        <label for="redeCodigo" class="form-label">Código:</label>
+        <input type="text" class="form-control" id="redeCodigo" value="ZFA04" />
+      </div>
+      <div class="col-md-8">
+        <label for="redeNome" class="form-label">Nome:</label>
+        <input type="text" class="form-control" id="redeNome" value="Alimentador de contingenciamento 2" />
+      </div>
+      <div class="col-md-2 d-flex align-items-end">
+        <button class="btn btn-outline-secondary w-100">adicionar</button>
+      </div>
+    </div>
+
+    <!-- Tabela redes adicionadas -->
+    <label class="form-label">Redes MT adicionadas</label>
+    <table class="table table-bordered">
+      <thead class="table-light">
+        <tr>
+          <th scope="col">Código</th>
+          <th scope="col">Nome</th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>ZFA01</td>
+          <td>Alimentador principal 1</td>
+          <td><a href="#" class="text-decoration-underline text-primary">excluir</a></td>
+        </tr>
+        <tr>
+          <td>ZFA02</td>
+          <td>Alimentador principal 2</td>
+          <td><a href="#" class="text-decoration-underline text-primary">excluir</a></td>
+        </tr>
+        <tr>
+          <td>ZFA03</td>
+          <td>Alimentador de contingenciamento</td>
+          <td><a href="#" class="text-decoration-underline text-primary">excluir</a></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Botões inferior -->
+  <div class="btn-group-bottom">
+    <button class="btn btn-outline-secondary btn-acao">cancelar</button>
+    <button class="btn btn-secondary btn-acao">incluir</button>
+  </div>
+
+</body>
+</html>
