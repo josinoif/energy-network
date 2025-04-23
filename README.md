@@ -94,3 +94,7 @@
     - Interface do Usuário:
         - Design responsivo, componentes Vue.js e navegação com Vue Router.
     - Tratamento de Erros
+
+- **Pontos de melhoria:**
+    - Implementação de testes para o frontend (testes de unidade e integração)
+    - Melhoria no casos de tratamento de erro
