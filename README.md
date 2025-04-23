@@ -21,7 +21,9 @@
              ```bash
              docker-compose up -d
              ```
-
+    - Observação: O banco de dados já inicia com um usuário pré-configurado:
+        - **Usuário**: `admin`
+        - **Senha**: `admin`
 - **Backend**:
     - Tecnologia: Java com Spring Boot.
     - Passos:
@@ -37,6 +39,7 @@
             ```bash
             ./mvnw spring-boot:run
             ```
+    - Observação: O backend realiza autenticação baseada em token JWT, implementada utilizando Spring Security.
 
 - **Frontend**:
     - Tecnologia: Vue.js.
@@ -90,5 +93,4 @@
         - Consumo de APIs, exibição de dados e mensagens de feedback.
     - Interface do Usuário:
         - Design responsivo, componentes Vue.js e navegação com Vue Router.
-    - Tratamento de Erros:
-        - Validação de formulários e exibição de mensagens claras.
+    - Tratamento de Erros
