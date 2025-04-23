@@ -26,13 +26,17 @@
     - Tecnologia: Java com Spring Boot.
     - Passos:
         1. Navegar até a pasta do backend:
-             ```bash
-             cd backend
-             ```
-        2. Compilar e iniciar o servidor:
-             ```bash
-             ./mvnw spring-boot:run
-             ```
+            ```bash
+            cd backend
+            ```
+        2. Rodar os testes automatizados:
+            ```bash
+            ./mvnw test
+            ```
+        3. Compilar e iniciar o servidor:
+            ```bash
+            ./mvnw spring-boot:run
+            ```
 
 - **Frontend**:
     - Tecnologia: Vue.js.
