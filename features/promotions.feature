@@ -23,3 +23,4 @@ Funcionalidade: Gerenciamento de promoções
     Quando eu clico no botão "Salvar"
     Então uma mensagem de erro deve ser exibida informando que o código já está em uso
     E a nova promoção não deve ser listada na tabela
+    Então a tabela deve conter apenas uma promoção com o código "PROMO10"
