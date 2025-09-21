@@ -24,3 +24,15 @@ Funcionalidade: Gerenciamento de promoções
     Então uma mensagem de erro deve ser exibida informando que o código já está em uso
     E a nova promoção não deve ser listada na tabela
     Então a tabela deve conter apenas uma promoção com o código "PROMO10"
+  Cenário: Criar uma nova promoção com desconto de 20%
+    Dado que estou na página de criação de promoções
+    E eu preencho o campo "Código" com "PROMO20"
+    E eu preencho o campo "Desconto" com "20%"
+    Quando eu clico no botão "Salvar"
+    Então a nova promoção deve ser listada na tabela
+  Cenário: Criar uma nova promoção com desconto de 15%
+    Dado que estou na página de criação de promoções
+    E eu preencho o campo "Código" com "PROMO15"
+    E eu preencho o campo "Desconto" com "15%"
+    Quando eu clico no botão "Salvar"
+    Então a nova promoção deve ser listada na tabela
