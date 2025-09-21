@@ -9,3 +9,9 @@ Funcionalidade: Gerenciamento de promoções
     E eu preencho o campo "Desconto" com "10%"
     Quando eu clico no botão "Salvar"
     Então a nova promoção deve ser listada na tabela
+  Cenário: Tentativa de criar uma nova promoção sem código
+    Dado que estou na página de criação de promoções
+    E eu preencho o campo "Desconto" com "10%"
+    Quando eu clico no botão "Salvar"
+    Então uma mensagem de erro deve ser exibida informando que o campo "Código" é obrigatório
+    E a nova promoção não deve ser listada na tabela
