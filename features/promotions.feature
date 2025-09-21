@@ -15,3 +15,11 @@ Funcionalidade: Gerenciamento de promoções
     Quando eu clico no botão "Salvar"
     Então uma mensagem de erro deve ser exibida informando que o campo "Código" é obrigatório
     E a nova promoção não deve ser listada na tabela
+  Cenário: Tentativa de criar uma nova promoção com um código já existente
+    Dado que já existe uma promoção com o código "PROMO10"
+    E eu estou na página de criação de promoções
+    E eu preencho o campo "Código" com "PROMO10"
+    E eu preencho o campo "Desconto" com "5%"
+    Quando eu clico no botão "Salvar"
+    Então uma mensagem de erro deve ser exibida informando que o código já está em uso
+    E a nova promoção não deve ser listada na tabela
