@@ -23,3 +23,9 @@ Funcionalidade: Gerenciamento de promoções
     Quando eu clico no botão "Salvar"
     Então uma mensagem de erro deve ser exibida informando que o código já está em uso
     E a nova promoção não deve ser listada na tabela
+  Cenário: Criar uma nova promoção com desconto de 20%
+    Dado que estou na página de criação de promoções
+    E eu preencho o campo "Código" com "PROMO20"
+    E eu preencho o campo "Desconto" com "20%"
+    Quando eu clico no botão "Salvar"
+    Então a nova promoção deve ser listada na tabela
