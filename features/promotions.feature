@@ -42,4 +42,17 @@ Funcionalidade: Gerenciamento de promoções
     E eu preencho o campo "Desconto" com "5%"   
     Quando eu clico no botão "Salvar"
     Então a nova promoção deve ser listada na tabela
+  Cenário: Criar uma nova promoção com desconto de 25%
+    Dado que estou na página de criação de promoções
+    E eu preencho o campo "Código" com "PROMO25"
+    E eu preencho o campo "Desconto" com "25%"
+    Quando eu clico no botão "Salvar"
+    Então a nova promoção deve ser listada na tabela
+  Cenário: Criar uma nova promoção com desconto de 30%
+    Dado que estou na página de criação de promoções
+    E eu preencho o campo "Código" com "PROMO30"
+    E eu preencho o campo "Desconto" com "30%"
+    Quando eu clico no botão "Salvar"
+    Então a nova promoção deve ser listada na tabela
+    
     
