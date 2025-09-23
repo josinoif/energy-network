@@ -35,3 +35,6 @@ Funcionalidade: Gerenciamento de promoções
     E eu preencho o campo "Desconto" com "15%"
     Quando eu clico no botão "Salvar"
     Então a nova promoção deve ser listada na tabela
+  Cenário: Verificar que apenas uma promoção com código existente é listada
+    Dado que já existe uma promoção com o código "PROMO10"
+    E eu estou na página de promoções
