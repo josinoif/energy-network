@@ -44,4 +44,12 @@ Funcionalidade: Gerenciamento de promoções
     E eu estou na página de promoções
     Então todas as promoções existentes devem ser listadas na tabela
     E a tabela deve conter exatamente 2 promoções
+  Cenário: Verificar que a promoção com código "PROMO10" tem desconto de 10%
+    Dado que já existe uma promoção com o código "PROMO10" e desconto de
+    E eu estou na página de promoções
+    Então a promoção com o código "PROMO10" deve ter um desconto de "10
+    E a tabela deve listar a promoção com o código "PROMO10" e desconto de "10%"
+    E a tabela deve conter exatamente 1 promoção com o código "PROMO10"
+    E a tabela deve conter exatamente 1 promoção com desconto de "10%"
+    
     
