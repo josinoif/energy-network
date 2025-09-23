@@ -59,3 +59,10 @@ Funcionalidade: Gerenciamento de promoções
   Cenário: Verificar que apenas uma promoção com código existente é listada
     Dado que já existe uma promoção com o código "PROMO10"
     E eu estou na página de promoções
+    Então apenas uma promoção com o código "PROMO10" deve ser listada na tabela
+  Cenário: Listar todas as promoções existentes
+    Dado que existem promoções com os códigos "PROMO10", "PROMO20
+    E eu estou na página de promoções
+    Então todas as promoções existentes devem ser listadas na tabela
+    E a tabela deve conter exatamente 2 promoções
+    
