@@ -65,12 +65,16 @@ Funcionalidade: Gerenciamento de promoções
     E eu estou na página de promoções
     Então todas as promoções existentes devem ser listadas na tabela
     E a tabela deve conter exatamente 2 promoções
-    
-
   Cenário: Criar uma nova promoção com desconto de 5%
     Dado que estou na página de criação de promoções
     E eu preencho o campo "Código" com "PROMO5"
     E eu preencho o campo "Desconto" com "5%"   
+    Quando eu clico no botão "Salvar"
+    Então a nova promoção deve ser listada na tabela
+  Cenário: Criar uma nova promoção com desconto de 25%
+    Dado que estou na página de criação de promoções
+    E eu preencho o campo "Código" com "PROMO25"
+    E eu preencho o campo "Desconto" com "25%"
     Quando eu clico no botão "Salvar"
     Então a nova promoção deve ser listada na tabela
     
